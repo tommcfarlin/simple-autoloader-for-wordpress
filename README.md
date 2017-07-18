@@ -1,15 +1,15 @@
 # Simple Autoloader for WordPress
 
-An [autoloader](http://php.net/manual/en/language.oop5.autoload.php) that aims to be as simple as dropping it into your WordPress project. All you need is a well-organized project.
+An [autoloader](https://secure.php.net/manual/en/language.oop5.autoload.php) that aims to be as simple as dropping it into your WordPress project. All you need is a well-organized project.
 
 ## More Information
 
-**TL;DR:** An autoloader you can drop into a WordPress plugin and begin using it automagically.
+**TL;DR:** An autoloader you can drop into a WordPress plugin and begin using automagically.
 
 In 2017, I gave a talk at WordCamp Atlanta about the importance of using 
 [Namespaces and Autoloading](https://tommcfarlin.com/namespaces-and-autoloading-2017/) in WordPress.
 
-Though for many projects, we can't adopt many of the new features of PHP7+, that doesn't mean can't use 
+Though for many projects, we can't adopt many of the new features of PHP7+, that doesn't mean we can't use 
 best practices when working on plugins and other projects.
 
 I have a _very_ simple autoloader that I'm sharing in this repository that I hope the greater (and smarter!) WordPress 
@@ -22,14 +22,14 @@ please see the section below.
 
 1. Clone or download this repository.
 2. Copy the `lib` directory into the root of your project.
-3. Add `include_once 'lib/autoload.php'` to your main plugin file.
+3. Add `include_once 'lib/autoload.php';` to your main plugin file.
 
 ### An Example
 
 This autoloader expects several things: 
 
 1. You're following the [WordPress Coding Standards](https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/#naming-conventions) as it relates to naming your classes.
-2. The structure of your namespaces follows the structure of your directory structure
+2. The structure of your namespaces follows the structure of your directory structure.
 
 I've provided an example below for how both your code and your directory should be organized to take advantage of the 
 autoloader.
@@ -48,15 +48,16 @@ And it's using a class in another namespace:
 use Pressware\Utility\Files\Reader;
 ```
 
-The autoloader expects that the root namespace defined in your main plugin file to be:
+The autoloader expects the root namespace defined in your main plugin file to be:
 
 ```php
-namespace Pressware
+namespace Pressware;
 ```
 
 ### The Directory Structure
 
 And that all of the rest of the files are located in a directory structure like this:
+
 ```
 + plugin-name
 |
@@ -80,7 +81,7 @@ Then, at the top of your plugin file add the following:
 
 `require_once 'lib/autoload.php';`
 
-This can work alongside another other autoloaders (such as those that come with Composer) and will prevent you from 
+This can work alongside other autoloaders (such as those that come with Composer) and will prevent you from 
 needing to add `require_once` or `include_once` all over the state of your application.
 
 ## Other Information
@@ -89,7 +90,7 @@ If you're interested in contributing, reading more, and or following changes (al
 below.
 
 * The project is licensed [GPL](LICENSE).
-* If you're interested in contributing, please read [this document](CONTRIBUTING.md).
+* If you're interested in contributing, please [read about contributing](CONTRIBUTING.md).
 * See the [CHANGELOG](CHANGELOG.md) for a complete list of changes.
 
 > [Oh yeah? Watch this!](https://www.youtube.com/watch?v=X-rkFaIPyL4) 
