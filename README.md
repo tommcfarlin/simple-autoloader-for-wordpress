@@ -67,9 +67,9 @@ And that all of the rest of the files are located in a directory structure like 
 |   Utility
 |       ...
 |
-|   Files
-|       class-reader.php
-|       ...
+|       Files
+|           class-reader.php
+|           ...
 |
 |   plugin-bootstrap.php
 ```
