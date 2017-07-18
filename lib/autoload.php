@@ -46,5 +46,7 @@ spl_autoload_register(function( $filename ) {
 	$fully_qualified_path .= $class_file;
 
 	// Now include the file.
-	include_once $fully_qualified_path;
+	if ( stream_resolve_include_path($fully_qualified_path) ) {
+		include_once $fully_qualified_path;
+	}
 });
