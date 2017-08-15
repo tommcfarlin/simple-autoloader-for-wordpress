@@ -17,14 +17,30 @@ spl_autoload_register(function( $filename ) {
 	 */
 
 	// Get the last index of the array. This is the class we're loading.
-	$class_file = '';
+	$file_name = '';
 	if ( isset( $file_path[ count( $file_path ) - 1 ] ) ) {
 
-		$class_file = strtolower(
+		$file_name = strtolower(
 			$file_path[ count( $file_path ) - 1 ]
 		);
-		$class_file = str_ireplace( '_', '-', $class_file );
-		$class_file = "class-$class_file.php";
+
+		$file_name       = str_ireplace( '_', '-', $file_name );
+		$file_name_parts = explode( '-', $file_name );
+
+		// Interface support: handle both Interface_Foo or Foo_Interface.
+		$index = array_search( 'interface', $file_name_parts );
+
+		if ( false !== $index ) {
+			// Remove the 'interface' part.
+			unset( $file_name_parts[ $index ] );
+
+			// Rebuild the file name.
+			$file_name = implode( '-', $file_name_parts );
+
+			$file_name = "interface-{$file_name}.php";
+		} else {
+			$file_name = "class-$file_name.php";
+		}
 	}
 
 	/**
