@@ -59,7 +59,7 @@ spl_autoload_register(function( $filename ) {
 		$dir = strtolower( $file_path[ $i ] );
 		$fully_qualified_path .= trailingslashit( $dir );
 	}
-	$fully_qualified_path .= $class_file;
+	$fully_qualified_path .= $file_name;
 
 	// Now include the file.
 	if ( stream_resolve_include_path($fully_qualified_path) ) {
