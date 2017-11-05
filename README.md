@@ -61,6 +61,9 @@ And that all of the rest of the files are located in a directory structure like 
 ```
 + plugin-name
 |
+|   lib
+|       autoload.php
+|
 |   API
 |       ...
 |       ...
