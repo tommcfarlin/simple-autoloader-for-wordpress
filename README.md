@@ -22,7 +22,7 @@ please see the section below.
 
 1. Clone or download this repository.
 2. Copy the `lib` directory into the root of your project.
-3. Add `include_once 'lib/autoload.php';` to your main plugin file.
+3. Add `require_once 'lib/autoload.php';` to your main plugin file.
 
 ### An Example
 
